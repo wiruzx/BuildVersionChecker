@@ -13,8 +13,7 @@ def get_from_plist(key, plist):
 def escape_newline(string):
     return string.replace('\n', '')
 
-src_root = os.environ['SRCROOT']
-plist = src_root + '/' + os.environ['INFOPLIST_FILE']
+plist = os.environ['PRODUCT_SETTINGS_PATH']
 build_version = escape_newline(get_from_plist('CFBundleVersion', plist))
 short_build_version = escape_newline(get_from_plist('CFBundleShortVersionString', plist))
 
