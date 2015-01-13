@@ -2,7 +2,6 @@
 
 import os
 import subprocess
-import sys
 
 def execute(*args):
     return subprocess.Popen(args, stdout=subprocess.PIPE).communicate()[0]
@@ -18,9 +17,9 @@ build_version = escape_newline(get_from_plist('CFBundleVersion', plist))
 short_build_version = escape_newline(get_from_plist('CFBundleShortVersionString', plist))
 
 if build_version.startswith(short_build_version):
-    sys.exit(0)
+    exit(0)
 else:
     print("\nBuild (%s) should starts with Version (%s)\n" % (build_version, short_build_version))
-    sys.exit(1)
+    exit(1)
 
 
