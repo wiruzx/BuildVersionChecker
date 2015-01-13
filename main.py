@@ -4,11 +4,11 @@ import os
 import subprocess
 import sys
 
-def execute(args):
+def execute(*args):
     return subprocess.Popen(args, stdout=subprocess.PIPE).communicate()[0]
 
 def get_from_plist(key, plist):
-    return execute(['/usr/libexec/PlistBuddy', '-c', 'Print %s' % key, '%s' % plist])
+    return execute('/usr/libexec/PlistBuddy', '-c', 'Print %s' % key, '%s' % plist)
 
 def escape_newline(string):
     return string.replace('\n', '')
